@@ -1,0 +1,31 @@
+name: CMWAuth
+main: fr.florentlife.cmwauth.CMWAuth
+version: 0.1
+description: Plugin permettant de relier l'inscription IG avec celle sur un site propulsé par CraftMyWebsite
+author: Florentlife
+commands:
+  connectSite:
+    description: Demarrer la connexion site/joueur
+    usage: /connectSite [mot de passe]
+    permission: none
+    aliases:
+    - csite 
+  disconnectSite:
+    description: Interrompre la connexion site/joueur
+    usage: /disconnectSite
+    permission: none
+    aliases:
+    - dsite
+  updateSite:
+    description: Modifier les donnees enregistre sur le site (adresse mail, mot de passe)
+    usage: /updatesite [mail | mdp] [nouvelleValeur]
+    permission: none
+    aliases:
+    - usite
+  getMonnaieSite:
+    desription: Affiche le nombre de points boutique Site disponible
+    usage: /getmonnaiesite 
+    permission: none
+    aliases:
+    - getmsite
+    - getms

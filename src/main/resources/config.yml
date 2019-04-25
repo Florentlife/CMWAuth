@@ -1,0 +1,7 @@
+CMWAuth:
+  mysql: false #utiliser une base de donnee MySQL
+  adresse: #Adresse de connexion de la base (peut être localhost)
+  utilisateur: #utilisateur de votre base de donnée
+  mdp: #Mot de passe lié à l'utilisateur de la base de donnée
+  port: 3306 #Port, par défaut 3306, si vous n'êtes pas sur laissez le 
+  base: #Nom de la base de donnée à utiliser
