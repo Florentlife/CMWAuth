@@ -108,6 +108,14 @@ public class CMWAuth extends JavaPlugin{
 	@Override
 	public void onDisable() {
 		getLogger().info("Arret de CMWAuth ...");
+		getLogger().info("Deconnexion de tout les joueurs ...");
+		MySQLOperations.disconnectAll();
+		try {
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		getLogger().info("Plugin arrete");
 	}
 	
 	public void initialize() {
@@ -115,6 +123,8 @@ public class CMWAuth extends JavaPlugin{
 		getCommand("disconnectSite").setExecutor(new DisconnectSiteCommandExecutor());
 		getCommand("updateSite").setExecutor(new UpdateSiteCommandExecutor());
 		getCommand("getmonnaiesite").setExecutor(new GetMonnaieCommandExecutor());
+		getCommand("givemonnaiesite").setExecutor(new GiveMonnaieCommandExecutor());
+		getCommand("registersite").setExecutor(new RegisterCommandExecutor());
 		getServer().getPluginManager().registerEvents(new CMWAuthListener(), this);
 		getLogger().info("Enclenchement des filtres");
 		ConsoleFilter filter = new ConsoleFilter();
@@ -130,5 +140,10 @@ public class CMWAuth extends JavaPlugin{
 	
 	public static Connection getConnection() {
 		return connection;
+	}
+	
+	public void setConnection(Connection con)
+	{
+		connection = con;
 	}
 }

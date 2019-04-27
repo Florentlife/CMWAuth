@@ -7,25 +7,52 @@ commands:
   connectSite:
     description: Demarrer la connexion site/joueur
     usage: /connectSite [mot de passe]
-    permission: none
+    permission: cmwauth.connect
     aliases:
     - csite 
   disconnectSite:
     description: Interrompre la connexion site/joueur
     usage: /disconnectSite
-    permission: none
+    permission: cmwauth.connect
     aliases:
     - dsite
   updateSite:
     description: Modifier les donnees enregistre sur le site (adresse mail, mot de passe)
     usage: /updatesite [mail | mdp] [nouvelleValeur]
-    permission: none
+    permission: cmwauth.connect
     aliases:
     - usite
   getMonnaieSite:
     desription: Affiche le nombre de points boutique Site disponible
     usage: /getmonnaiesite 
-    permission: none
+    permission: cmwauth.getmonnaie
     aliases:
     - getmsite
     - getms
+  giveMonnaieSite:
+    description: Transmet des points boutique à un autre joueur (connecté ou non, mais inscrit sur le site)
+    usage: /givemonnaiesite [joueur] [montant]
+    permission: cmwauth.givemonnaie
+    aliases:
+    - givems 
+    - givemsite
+  registerSite:
+    description: Permet de s'enregistrer sur le site 
+    usage: /registersite 
+    permission: cmwauth.registersite 
+    aliases:
+    - registers 
+    - rs
+permissions:
+    cmwauth.connect:
+        description: permet d'utiliser /connectsite, /disconnectSite et /updatesite
+        default: true
+    cmwauth.getmonnaie:
+        description: permet d'utiliser /getMonnaieSite
+        default: true
+    cmwauth.givemonnaiesite:
+        description: permet d'utiliser /givemonnaiesite
+        default: true
+    cmwauth.register:
+        description: permet d'utiliser le /registersite
+        default: true
