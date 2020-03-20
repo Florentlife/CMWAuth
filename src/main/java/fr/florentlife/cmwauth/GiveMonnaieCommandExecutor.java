@@ -21,15 +21,15 @@ public class GiveMonnaieCommandExecutor implements CommandExecutor {
 					{
 						if(MySQLOperations.verifExistenceJoueur(args[0]))
 						{
-							Integer integer = new Integer(args[1]);
-							if(MySQLOperations.getMonnaie(p.getName()) >= integer.intValue() )
+							int valeur = Integer.parseInt(args[1]);
+							if(MySQLOperations.getMonnaie(p.getName()) >= valeur )
 							{
-								MySQLOperations.giveMonnaie(p.getName(), args[0], integer.intValue());
-								p.sendMessage(prefix+ChatColor.GREEN+"Vous avez transmit "+ChatColor.GRAY+integer.intValue()+ChatColor.GREEN+" points boutique à "+ChatColor.GRAY+args[0]);
+								MySQLOperations.giveMonnaie(p.getName(), args[0], valeur);
+								p.sendMessage(prefix+ChatColor.GREEN+"Vous avez transmit "+ChatColor.GRAY+valeur+ChatColor.GREEN+" points boutique à "+ChatColor.GRAY+args[0]);
 								p.sendMessage(prefix+ChatColor.GREEN+"Si le joueur est actuellement connecté il recevra un message !");
 								Player j = isConnected(args[0]);
 								if(j != null)
-									j.sendMessage(prefix+ChatColor.GRAY+p.getName()+ChatColor.GREEN+" Vous a offert "+ChatColor.GRAY+integer.intValue()+ChatColor.GREEN+" points boutique !!!! :D");
+									j.sendMessage(prefix+ChatColor.GRAY+p.getName()+ChatColor.GREEN+" Vous a offert "+ChatColor.GRAY+valeur+ChatColor.GREEN+" points boutique !!!! :D");
 								
 							}
 						}
@@ -59,13 +59,13 @@ public class GiveMonnaieCommandExecutor implements CommandExecutor {
 				{
 					if(MySQLOperations.verifExistenceJoueur(args[0]))
 					{
-						Integer integer = new Integer(args[1]);
-						MySQLOperations.giveMonnaie(args[0], integer.intValue());
-						CMWAuth.getInstance().getLogger().info(integer.intValue()+" ont ete ajoute a "+args[0]);
+						int valeur = Integer.parseInt(args[1]);
+						MySQLOperations.giveMonnaie(args[0], valeur);
+						CMWAuth.getInstance().getLogger().info(valeur+" ont ete ajoute a "+args[0]);
 						CMWAuth.getInstance().getLogger().info("S'il est connecte il recevra un message pour le prevenir de cet ajout !");
 						Player j = isConnected(args[0]);
 						if(j != null)
-							j.sendMessage(prefix+"Le serveur vous a offert "+ChatColor.GRAY+integer.intValue()+ChatColor.GREEN+" points boutique !!!! :D");
+							j.sendMessage(prefix+"Le serveur vous a offert "+ChatColor.GRAY+valeur+ChatColor.GREEN+" points boutique !!!! :D");
 					}
 				}
 			}
