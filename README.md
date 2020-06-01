@@ -7,3 +7,5 @@ Pour l'installation vous pouvez executer la commande Maven :
 mvn clean package
 
 vous retrouverez le jar dans le dossier target nouvellement créer
+
+Si vous n'avez pas maven, le latest build est dans le dossier /jar
