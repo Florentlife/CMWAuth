@@ -63,6 +63,7 @@ public class CMWAuth extends JavaPlugin{
 					    	getLogger().info("Configuration reussis !");
 					    	//Ajout des commandes et listener
 							initialize();
+							connection = con;
 					    }
 					    catch(SQLException e)
 					    {
